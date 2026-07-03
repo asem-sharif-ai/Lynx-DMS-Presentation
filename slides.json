@@ -1,0 +1,2307 @@
+[
+    {
+        "body": {
+            "type": "break",
+            "data": "Lynx DMS",
+            "metadata": "Intelligent Edge-Deployed Driver Monitoring System"
+        }
+    },
+    {
+        "body": {
+            "type": "members",
+            "data": [
+                {
+                    "title": "Assoc. Prof. Mina Ibrahim",
+                    "subtitle": "Faculty of Artificial Intelligence",
+                    "image": "",
+                    "link": ""
+                },
+                {
+                    "title": "Asem Sharif",
+                    "subtitle": "AI & Computer Vision Engineer",
+                    "image": "./Assets/Members/asem.jpg",
+                    "link": "https://github.com/asem-sharif-ai"
+                },
+                {
+                    "title": "Hossam El-Naggar",
+                    "subtitle": "Managed Testing Strategy",
+                    "image": "./Assets/Members/hossam.png",
+                    "link": ""
+                },
+                {
+                    "title": "Zeinab Abd El-Moez",
+                    "subtitle": "Integrated Models Into The Edge Device",
+                    "image": "./Assets/Members/zeinab.png",
+                    "link": ""
+                },
+                {
+                    "title": "Arwa Mohammed",
+                    "subtitle": "Managed Dataset Processing & Pipelines",
+                    "image": "./Assets/Members/arwa.png",
+                    "link": ""
+                },
+                {
+                    "title": "Marwa El-Nemr",
+                    "subtitle": "Interpreted States & Behaviors Logic",
+                    "image": "./Assets/Members/marwa.png",
+                    "link": ""
+                },
+                {
+                    "title": "Rowaida Anter",
+                    "subtitle": "Designed Data Driven Decisions Systems",
+                    "image": "./Assets/Members/rowaida.png",
+                    "link": ""
+                }
+            ]
+        }
+    },
+    {
+        "body": {
+            "type": "index",
+            "data": [
+                {
+                    "title": "Chapter 1: Introduction",
+                    "subtitle": "The Human Toll of Drowsy Driving, Fatigue, and Driver Inattention."
+                },
+                {
+                    "title": "Chapter 2: Literature Review",
+                    "subtitle": "Driver Monitoring Systems, AI Solutions, and Research Landscape."
+                },
+                {
+                    "title": "Chapter 3: Problem Statement",
+                    "subtitle": "The Real-World Constraints: Privacy, Latency, Cost, and Connectivity."
+                },
+                {
+                    "title": "Chapter 4: Datasets & Models",
+                    "subtitle": "Data Acquisition, Training Pipelines, and Model Architectures."
+                },
+                {
+                    "title": "Chapter 5: System Overview",
+                    "subtitle": "Core Features, Module Structure, and Perception Pipeline."
+                },
+                {
+                    "title": "Chapter 6: The Decision Engine",
+                    "subtitle": "Architecture Layers, Session Management, and Workflow."
+                },
+                {
+                    "title": "Chapter 7: Hardware & Deployment",
+                    "subtitle": "The Edge Device, Quantization, and Prototype Enclosure."
+                },
+                {
+                    "title": "Chapter 8: User Interface & Interaction",
+                    "subtitle": "Dashboard, Voice Assistant, Alert System, and Feedback Loop."
+                },
+                {
+                    "title": "Chapter 9: Live Performance Demonstration",
+                    "subtitle": "End-to-End System Demonstration Across Detection Scenarios."
+                },
+                {
+                    "title": "Chapter 10: Conclusion & Future Versions",
+                    "subtitle": "Benchmarks, Limitations, Key Takeaways, and Development Plans."
+                }
+            ]
+        }
+    },
+    {
+        "title": "Chapter 1: Introduction",
+        "subtitle": "The Human Toll of Drowsy Driving, Fatigue, and Driver Inattention."
+    },
+    {
+        "title": "Introduction",
+        "subtitle": "The Most Dangerous Moment on the Road Looks Completely Normal.",
+        "body": {
+            "type": "text",
+            "data": [
+                "There is no screech of tires before most road accidents happen. No warning light. No alarm. No conscious decision made or missed. The road does not announce what is about to occur. For a moment, the driver is on a familiar road, fully in control, aware of every lane and turn. The next, they are not, and in the seconds between, nothing outwardly changed. No one watching from outside would have seen it coming.",
+                "---",
+                "This is how drowsy and inattentive driving kills. **With Absence.** Not with a visible moment of failureor a loss of control, but with a quiet withdrawal of the mind from the act of driving, so gradual, so invisible, that it leaves no trace until it is already too late.",
+                "---",
+                "It is precisely this invisibility that makes it one of the most persistent unsolved problems in road safety. Impairment produces no external signal that observers can reliably detect. More critically, it produces no internal signal the driver themselves can trust. The same neurological degradation that makes driving dangerous also dismantles the ability to recognize that anything is wrong.",
+                "---",
+                "Before we can understand the system we built, we need to understand the gap it was built to fill. The fundamental mismatch between how the human brain degrades silently under fatigue and inattention, and how little the world has designed to detect it, respond to it, or stop it."
+            ]
+        }
+    },
+    {
+        "title": "The Problem Scale",
+        "subtitle": "The Annual Death Toll of Roads That Cannot See Their Drivers.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    0,
+                    1
+                ],
+                "cols": [
+                    3,
+                    2,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        1,
+                        3
+                    ],
+                    "type": "text",
+                    "data": [
+                        "Every year, **1.19 Million People** are killed on the world's roads [(WHO, 2023)](https://www.who.int/publications/i/item/9789240086517). While this represents a slight decline, it still means over **3,000 Traffic Fatalities Every Single Day**. Drowsy driving alone accounts for **91,000 Police-Recorded Crashes**, **50,000 Injuries**, and **800 Deaths** in US/2017, roughly **1.8% of All Crashes** and estimated **17.6% of All Fatal Crashes** [(NHTSA, 2017)](https://www.nhtsa.gov/risky-driving/drowsy-driving).",
+                        "But these numbers are almost certainly wrong. Crash investigators can note suspected drowsiness, but there is **No Breathalyzer For Fatigue**. No blood test, no trace, no confession. If the driver survived and doesn't admit it, the box goes unticked. The true figure, by every independent estimate, is several times higher."
+                    ]
+                },
+                {
+                    "index": [
+                        1,
+                        0,
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "data": {
+                        "Crashes": {
+                            "value": 91000,
+                            "color": "#aa8800"
+                        },
+                        "Injuries": {
+                            "value": 50000,
+                            "color": "#aa4400"
+                        },
+                        "Deaths": {
+                            "value": 800,
+                            "color": "#aa0000"
+                        },
+                        "Daily Crashes": {
+                            "value": 3000,
+                            "color": "#aa8800"
+                        }
+                    }
+                },
+                {
+                    "index": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "pie",
+                    "data": {
+                        "Drowsy Driving": {
+                            "value": 1.8,
+                            "color": "#aa1010"
+                        },
+                        "All Crashes": {
+                            "value": 98.2,
+                            "color": "#acacac"
+                        }
+                    }
+                },
+                {
+                    "index": [
+                        1,
+                        2,
+                        1,
+                        1
+                    ],
+                    "type": "pie",
+                    "data": {
+                        "Drowsy Driving": {
+                            "value": 17.6,
+                            "color": "#aa1010"
+                        },
+                        "Fatal Crashes": {
+                            "value": 82.4,
+                            "color": "#acacac"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "title": "Understanding The Risk",
+        "subtitle": "What Are the Root Causes of Drowsiness and the Correlation with Prolonged Wakefulness.",
+        "body": {
+            "type": "text",
+            "data": [
+                "Drowsiness is not a sudden event. It is a gradient, a slow accumulation of sleep pressure that **Degrades Cognitive and Motor Performance** long before any subjective sense of danger.",
+                "The critical, counterintuitive finding from sleep research is that fatigued individuals consistently **Underestimate Their Own Impairment**. The same neurological degradation that makes driving dangerous also impairs the meta-cognitive ability to recognize that anything is wrong. A driver who feels 'a little tired' may be operating well below the threshold of safe performance.",
+                "---",
+                "The landmark study by **Williamson and Feyer** quantified this precisely:  [(BMJ Journals)](https://doi.org/10.1136/oem.57.10.649)",
+                "* After **17 to 19 Hours without Sleep**, which is a duration that describes a late shift followed by a morning commute, cognitive and motor performance decrements become **Equivalent to a Blood Alcohol Concentration of 0.05%**.",
+                "* After **24 Hours of Wakefulness**, that equivalence rises to **0.10%** BAC, above the legal driving limit in most jurisdictions.",
+                "---",
+                "Crucially, alcohol impairment is visible, measurable, and legally actionable. Fatigue impairment is none of those things."
+            ]
+        }
+    },
+    {
+        "title": "The Gap in Consciousness",
+        "subtitle": "Invisible Involuntary Sleep Episodes and What They Cost at High Speed.",
+        "body": {
+            "type": "text",
+            "data": [
+                "At the extreme end of this degradation curve sits **Microsleep**:",
+                "* Involuntary sleep episodes lasting **2 to 30 Seconds**, during which the brain enters a sleep state while the body remains in position.",
+                "The eyes may remain partially open. There is no muscle collapse, no audible change in breathing. From the outside, nothing looks wrong. From the inside, there is nothing, a gap in consciousness the driver typically does not remember.",
+                "At highway speed of **100 km/h**, even a **4 Seconds Microsleep** means the vehicle travels approximately **+100 Metres with No Driver Input**, no steering correction, no braking response. That may happen on a curve, near an intersection, or beside a barrier.",
+                "That is more than enough distance for a **Fatal Outcome**. And unlike the blurred vision or slow reaction time of earlier fatigue stages, microsleep produces **Zero Subjective Warning** before it begins.",
+                "---",
+                "While traditional safeguards and driving breaks offer temporary mitigation during long trips, they cannot act on what they cannot observe. True prevention requires **Continuous**, **Real-Time Monitoring** and **Adaptive Behavior Analysis** of the driver, precisely the role that **Drowsiness Detection** units in modern **Driver Monitoring Systems** are designed to fill."
+            ]
+        }
+    },
+    {
+        "title": "The Faces of Distraction",
+        "subtitle": "How Driver Inattention Is Classified, and Why the Most Dangerous Type Leaves No Trace.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The word 'distraction' tends to conjure a specific image: a driver staring at a phone, thumb scrolling, eyes completely off the road. That image is real and dangerous, but it represents only one of three fundamentally different categories of driver inattention, and arguably not the hardest one to detect or address.",
+                "---",
+                "NHTSA's official distraction taxonomy defines **3 Types**:  [(Federal Register)](https://unblock.federalregister.gov/)",
+                "* **Visual Distraction - Eyes OFF Road**: Glancing at a phone screen, a dashboard display, a passenger, or an object outside the vehicle. It is observable: a camera pointed at the face will catch it.",
+                "* **Manual Distraction - Hands OFF Wheel**: Reaching for a drink, adjusting a control, handling an object. It too leaves physical traces.",
+                "* **Cognitive Distraction - Mental Inattention**: This is different. It takes the mind away from the task of driving while leaving everything else in place. The eyes remain forward. The hands stay on the wheel. The driver appears, by every outward measure, to be attentive. Yet their mental resources are allocated elsewhere, to a phone conversation, an argument they are replaying, a problem they are solving, a daydream they have drifted into."
+            ]
+        }
+    },
+    {
+        "title": "Cognitive Distraction",
+        "subtitle": "The Hidden Risk: When Visual Metrics Read Nominal but Perception Fails.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1,
+                    0,
+                    0
+                ],
+                "cols": [
+                    3,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "type": "text",
+                    "data": [
+                        "The research consequence of this is striking. **Strayer, Drews, and Johnston (2003)** showed that drivers engaged in a hands-free phone conversation, no manual interaction, eyes forward, failed a surprise recognition memory test for objects they had directly and recently **Fixated By 50%** compared to undistracted drivers. [(PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2684625/)",
+                        "---",
+                        "Eyes forward. Hands on the wheel. Lane held. Every visual metric a camera could measure reads nominal, and yet the driver has processed almost nothing for the past several seconds. This is the detection problem that **Pure Gaze-Tracking Systems Can Not Solve**."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH1/CognitiveDistraction.png"
+                },
+                {
+                    "index": [
+                        1,
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "text",
+                    "data": [
+                        "They looked at the objects. Still did not see it. **Strayer and Drews (2007)** described this as inattentional blindness:  [(IIHS)](https://www.iihs.org/research-areas/distracted-driving)",
+                        "* **The Brain Overwhelmed** by the competing cognitive demand of conversation, simply **Stops Processing a Significant Fraction of the Visual Scene** it is receiving. The driver is present. Their attention is elsewhere. And no lane departure warning, no steering torque monitor, and no phone ban catches the driver who is talking hands-free while mentally composing tomorrow's presentation."
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "title": "Chapter 2: Literature Review",
+        "subtitle": "Driver Monitoring Systems, AI Solutions, and Research Landscape."
+    },
+    {
+        "title": "Approaches That Shaped the Field",
+        "subtitle": "How Academia Partitioned the DMS Problem Before Deep Learning.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    0
+                ],
+                "cols": [
+                    1,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0
+                    ],
+                    "type": "text",
+                    "data": [
+                        "Early DMS research converged on **3 Strategies**:",
+                        "* **Vehicle-Based Methods** analyzed steering entropy, lane deviation, and speed variability as proxies for cognitive state. Indirect signals that only manifest after impairment has already degraded motor output.",
+                        "* **Physiological Methods** used EEG, ECG, and galvanic skin response. Provided very high scientific accuracy with poor real-world usability as it required direct physical contact.",
+                        "* **Camera-Based Methods** emerged as the practical middle ground."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH2/DMSMethods.png",
+                    "metadata": "Vehicle-Based, Physiological, and Camera-Based Methods."
+                }
+            ]
+        }
+    },
+    {
+        "title": "The Canonical Metrics",
+        "subtitle": "What the Field Agreed to Measure, PERCLOS, EAR, and MAR.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    0,
+                    0
+                ],
+                "cols": [
+                    3,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        2,
+                        1
+                    ],
+                    "type": "text",
+                    "data": [
+                        "**PERCLOS** (Percentage of Eye Closure), defined as the proportion of time the eye is 80% or more closed over a rolling time window, was validated by **Wierwille et al.** as the single most predictive physiological indicator of operator drowsiness, and is the basis of NHTSA's official drowsiness measurement standard.",
+                        "**EAR** (Eye Aspect Ratio), introduced by **Soukupová and Čech (2016)**, provides a per-frame scalar computed directly from facial landmarks with no depth sensor required.",
+                        "**MAR** (Mouth Aspect Ratio) extended the same geometric principle to yawn detection.",
+                        "Together, aspect ratio calculations and head pose estimation formed the computational core of camera-based DMSs.",
+                        "However, while classical vision methods for face detection and eye localization established the vocabulary of the field, they proved brittle under real-world variations in lighting, head pose, and occlusion from glasses or masks. Deep learning addressed this directly and later became the backbone of modern DMS perception pipelines."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH2/PERCLOS_EAR_MAR.png",
+                    "metadata": "PERCLOS, EAR, MAR, and Gaze Estimation."
+                }
+            ]
+        }
+    },
+    {
+        "title": "The Deep Learning Shift",
+        "subtitle": "From Hand-Crafted Features to Learned Representations and Temporal Modeling.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1
+                ],
+                "cols": [
+                    3,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0
+                    ],
+                    "type": "text",
+                    "data": [
+                        "**CNN-Based** face detectors replaced fragile cascade classifiers.",
+                        "Landmark predictors moved **from Active Shape Models to Regression Networks** capable of **478-Point Meshes** (MediaPipe FaceLandmarker).",
+                        "YOLO-Family detectors were retrained for gaze direction, eye state, and yawn classification, tasks requiring semantic understanding beyond geometry.",
+                        "---",
+                        "A DMS is not a still-image classifier. A single-frame EAR reading of 0.15 could mean a blink, a partial occlusion, or the onset of microsleep, the same number, entirely different meaning depending on what surrounds it in time.",
+                        "Research converged on **Temporal Aggregation** as a first-class design concern:",
+                        "* **LSTM-Based** sequence models, **Temporal CNN** architectures, and sliding window label-voting approaches all outperform per-frame classifiers on real driving data."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH2/MP_YOLO.png",
+                    "metadata": "MediaPipe Landmarks and YOLO Classification."
+                }
+            ]
+        }
+    },
+    {
+        "title": "Existing Commercial Systems",
+        "subtitle": "The Industry Achievements and Regulatory Landscape.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1,
+                    1
+                ],
+                "cols": [
+                    3,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        2,
+                        1
+                    ],
+                    "type": "text",
+                    "data": [
+                        "Commercial DMS leaders:",
+                        "* **Seeing Machines** [(FOVIO Platform)](https://seeingmachines.com)",
+                        "* **Smart Eye** [(AIS Platform)](https://smarteye.se)",
+                        "Share a consistent architecture: an IR-illuminated in-cabin camera, an embedded processor for landmark inference, and a **Cloud or Hybrid Backend Component** for analytics, model updates, and behavioral logging.",
+                        "Tier-1 automotive suppliers including **Bosch**, **Continental**, and **Valeo** embed DMS functionality directly into consolidated cockpit domain controllers, packaging gaze estimation, head pose tracking, and occupant classification into a single ECU alongside ADAS and infotainment subsystems.",
+                        "Unlike algorithm vendors, which license their perception stack upstream, the integrators own the hardware layer, producing camera modules and domain controllers that are designed into vehicle platforms at the factory and replaced only at the OEM's discretion."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH2/SmartEye.png",
+                    "fade": false
+                },
+                {
+                    "index": [
+                        1,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH2/SeeingMachines.png",
+                    "fade": false
+                }
+            ]
+        }
+    },
+    {
+        "title": "Chapter 3: Problem Statement",
+        "subtitle": "The Real-World Constraints: Privacy, Latency, Cost, and Connectivity."
+    },
+    {
+        "title": "The Deployment Gap",
+        "subtitle": "Knowing the Problem Is Not the Same as Having a Solution.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1,
+                    1
+                ],
+                "cols": [
+                    3,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        2,
+                        1
+                    ],
+                    "type": "text",
+                    "data": [
+                        "The literature is mature. Commercial systems are real and functional. Regulation is now in force, yet the vast majority of vehicles on the road today carry no driver monitoring system of any kind.",
+                        "The global DMS market reached **$3.03 Billion in 2024** [(Grand View Research)](https://www.grandviewresearch.com/industry-analysis/driver-monitoring-system-market-report) across an industry producing over **90 Million Vehicles Annually**.",
+                        "While the EU **GSR 2019/2144** mandates DDAW from July 2024 and ADDW by July 2026 [(Smart Eye)](https://smarteye.se/blog/what-to-know-about-ddaw-and-addw-systems/), projecting **+25,000 Lives Saved** and **+140,000 Serious Injuries Prevented** by 2038 [(AddSecure)](https://www.addsecure.com/blog/the-eu-general-safety-regulation-gsr/).",
+                        "The penetration gap is stark, regulation covers new EU models only. The existing global fleet remains entirely unaddressed.",
+                        "This is not a research problem. The science is settled. **Lynx DMS** was built to answer the question that comes after: what prevents driver monitoring from being accessible at scale, and can those constraints be re-engineered from the ground up."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "pie",
+                    "data": {
+                        "Vehicles With DMS": {
+                            "value": 4,
+                            "color": "#00bcd4"
+                        },
+                        "Vehicles Without DMS": {
+                            "value": 96,
+                            "color": "#aa1010"
+                        }
+                    }
+                },
+                {
+                    "index": [
+                        1,
+                        1
+                    ],
+                    "type": "bar",
+                    "data": {
+                        "Software": [
+                            {
+                                "label": "2023",
+                                "value": 1.6,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2024",
+                                "value": 1.7,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2025",
+                                "value": 1.9,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2026",
+                                "value": 2.1,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2027",
+                                "value": 2.2,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2028",
+                                "value": 2.5,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2029",
+                                "value": 2.7,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2030",
+                                "value": 3.1,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2031",
+                                "value": 3.5,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2032",
+                                "value": 3.8,
+                                "color": "#1a1040"
+                            },
+                            {
+                                "label": "2033",
+                                "value": 5.0,
+                                "color": "#1a1040"
+                            }
+                        ],
+                        "Hardware": [
+                            {
+                                "label": "2023",
+                                "value": 1.0,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2024",
+                                "value": 1.3,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2025",
+                                "value": 1.4,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2026",
+                                "value": 1.7,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2027",
+                                "value": 2.0,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2028",
+                                "value": 2.8,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2029",
+                                "value": 2.7,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2030",
+                                "value": 2.7,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2031",
+                                "value": 3.2,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2032",
+                                "value": 3.7,
+                                "color": "#00bcd4"
+                            },
+                            {
+                                "label": "2033",
+                                "value": 3.1,
+                                "color": "#00bcd4"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "title": "Constraint 1: Privacy",
+        "subtitle": "Trillions of Miles of Data: Your Car Is Spying on You, and It's Only Just The Beginning.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1
+                ],
+                "cols": [
+                    3,
+                    1
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0
+                    ],
+                    "type": "text",
+                    "data": [
+                        "In-cabin cameras continuously capture the driver's face and potentially passengers. Commercial cloud-dependent systems transmit this raw video to remote servers for analysis, creating exposure to unauthorized access, data breaches, and surveillance overreach.",
+                        "CSEM's technical documentation on embedded automotive systems states it directly: Sending in-cabin images and/or audio data to the cloud significantly impairs crew privacy and exposes the system to external data attacks. [(CSEM)](https://www.csem.ch/en/technical-focus/iot-and-vision/edge-ai-and-vision/)",
+                        "A 2024 security disclosure identified an actively exploited unpatched vulnerability in AVTECH IP cameras deployed across critical infrastructure sectors including transportation. [(TechNexion)](https://www.technexion.com/resources/privacy-challenges-of-smart-cameras-edge-ai-as-a-solution/)",
+                        "Privacy-by-design means **Inference Must Happen On-Device**. Raw video must never leave the vehicle. This is not a performance tradeoff, it is a constraint that shapes the entire system architecture.",
+                        "Beyond technical vulnerabilities, cloud-dependent architectures carry a deeper trust problem and low social acceptability. [(AXIOS)](https://www.axios.com/2018/10/26/driver-cameras-bring-privacy-concerns/)",
+                        "This opacity erodes confidence in the system itself, independent of whether a breach ever occurs. [(BBC)](https://www.bbc.com/future/article/20260513-your-car-is-spying-on-you-its-about-to-get-worse/)"
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH3/Privacy.png"
+                }
+            ]
+        }
+    },
+    {
+        "title": "Constraint 2&3: Latency & Connectivity",
+        "subtitle": "Late Alerts Are Useless. Dead Zones Kill Coverage Where It Matters Most.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    0,
+                    1
+                ],
+                "cols": [
+                    1,
+                    1
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        2,
+                        1
+                    ],
+                    "type": "text",
+                    "data": [
+                        "At 100 km/h, the vehicle travels **+25 Metres Every Second**. A cloud round-trip for inference introduces **2 to 5 Seconds of Latency** under normal network conditions.",
+                        "Nauto's own documentation acknowledges: systems that **'Require Driver Video to Be Uploaded to the Cloud'** suffer a time lag that **'Prevents Real-Time Alerting.'**  [(Nauto)](https://www.nauto.com/glossary/what-is-a-driver-monitoring-system-dms)",
+                        "Fatigue risk peaks on long monotonous drives, highway corridors, rural roads, overnight routes. These are also the environments with the weakest cellular coverage. A cloud-dependent DMS that silently degrades when connectivity drops fails precisely where and when it is most needed."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH3/LatencyConnectivity.png"
+                },
+                {
+                    "index": [
+                        1,
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "text",
+                    "data": [
+                        "Lynx was architected from the ground up to eliminate all 3 constraints simultaneously. The entire inference pipeline executes locally with no external dependency at any stage of the monitoring session lifecycle. Providing sub-100ms inference latency with no connections requirements."
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "title": "Constraint 4: Cost",
+        "subtitle": "Price Points That Exclude Most of the World.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1
+                ],
+                "cols": [
+                    1,
+                    1
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0
+                    ],
+                    "type": "text",
+                    "data": [
+                        "OEM-embedded DMS hardware from Tier 1 suppliers adds **$200~$700 Per New Vehicle**. Commercial fleet AI dashcam subscriptions run **$27~$50 Per Vehicle Per Month** before hardware costs, for a 50-vehicle fleet, that is **$16,000~$30,000 Per Year** in software alone. [(Grand View Research)](https://www.grandviewresearch.com/industry-analysis/driver-monitoring-system-market-report) [(Field Servicely)](https://www.fieldservicely.com/blog/cost-of-gps-tracking)",
+                        "Meanwhile, **Lynx DMS** hardware coss under $150. No recurring subscription, cloud dependency, or vendor lock-in.",
+                        "Smart Eye's AIS fleet system is the closest the market has come to this model, it explicitly carries **No Subscriptions and No Hidden Fees**. However, It provides no built-in operator interface or on-device customization layer, any dashboard visibility depends on integration with third-party fleet management systems. [(Smart Eye)](https://smarteye.se/solutions/automotive/fleet-and-aftermarket/)"
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "bar",
+                    "data": {
+                        "Hardware (Device & Install)": [
+                            {
+                                "label": "Seeing",
+                                "value": 800,
+                                "color": "#7b3f00"
+                            },
+                            {
+                                "label": "Lytx",
+                                "value": 500,
+                                "color": "#1a6fa8"
+                            },
+                            {
+                                "label": "Samsara",
+                                "value": 400,
+                                "color": "#1a6b2e"
+                            },
+                            {
+                                "label": "Motive",
+                                "value": 300,
+                                "color": "#7b1fa2"
+                            },
+                            {
+                                "label": "Smart Eye",
+                                "value": 600,
+                                "color": "#1a3d6b"
+                            },
+                            {
+                                "label": "Lynx DMS",
+                                "value": 150,
+                                "color": "#004d57"
+                            }
+                        ],
+                        "Annual Subscription": [
+                            {
+                                "label": "Seeing",
+                                "value": 720,
+                                "color": "#c46a2a"
+                            },
+                            {
+                                "label": "Lytx",
+                                "value": 540,
+                                "color": "#2196f3"
+                            },
+                            {
+                                "label": "Samsara",
+                                "value": 480,
+                                "color": "#4caf50"
+                            },
+                            {
+                                "label": "Motive",
+                                "value": 360,
+                                "color": "#ab47bc"
+                            },
+                            {
+                                "label": "Smart Eye",
+                                "value": 0,
+                                "color": "#2e6db4"
+                            },
+                            {
+                                "label": "Lynx DMS",
+                                "value": 0,
+                                "color": "#00bcd4"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "title": "Chapter 4: Datasets & Models",
+        "subtitle": "Data Acquisition, Training Pipelines, and Model Architectures."
+    },
+    {
+        "title": "What an Ideal Dataset Looks Like",
+        "subtitle": "The Ground Truth Requirements for Driver Monitoring Systems.",
+        "body": {
+            "type": "text",
+            "data": [
+                "An ideal dataset for driver monitoring would consist of **continuous, labeled video streams captured from inside a real vehicle cabin**, or a high-fidelity simulation of one. Each frame would carry ground-truth annotations across four dimensions:",
+                "* **Illumination Variance**: Harsh midday sunlight washing out facial detail, tunnel darkness where only infrared survives, dashboard glow casting asymmetric shadows, and every gradient between them.",
+                "* **Facial Diversity**: All skin tones, all ages, faces behind glasses, faces behind masks, faces at oblique angles when the head turns toward a mirror or a passenger.",
+                "* **Action & State Coverage**: Not just eyes-closed drowsiness, but the subtler signals: the slow blink, the forward head drift, the thousand-yard stare of microsleep onset, and the full spectrum of distraction behaviors.",
+                "* **Object Context**: Seatbelts worn and not worn, phones held and resting, coffee cups, cigarettes, the full vocabulary of what a real cabin contains.",
+                "---",
+                "**No Single Dataset Provides All of This.** Building a multi-feature DMS classifier means assembling a coalition of specialized datasets, each covering a slice of the problem, and training models that can generalize across the seams between them."
+            ]
+        }
+    },
+    {
+        "title": "Datasets Used",
+        "subtitle": "A Coalition of Specialized Sources, Each Covering a Slice of the Problem.",
+        "body": {
+            "type": "table",
+            "metadata": {
+                "header": true
+            },
+            "data": [
+                [
+                    "**Dataset**",
+                    "**Full Name**",
+                    "**Coverage**",
+                    "**Scale**",
+                    "**Source**"
+                ],
+                [
+                    "**DMD**",
+                    "Driver Monitoring Dataset",
+                    "Drowsiness · Distraction · Gaze",
+                    "41H · 37 Subjects",
+                    "Vicomtech: [DMD](https://dmd.vicomtech.org)"
+                ],
+                [
+                    "**NTHU-DDD**",
+                    "Driver Drowsiness Dataset",
+                    "Drowsiness Scenarios",
+                    "10.5H · 36 Subjects",
+                    "NTHU: [DDD](http://cv.cs.nthu.edu.tw/php/callforpaper/datasets/DDD)"
+                ],
+                [
+                    "**UTA-RLDD**",
+                    "Real-Life Drowsiness Dataset",
+                    "Drowsiness · Alertness Levels",
+                    "30H · 60 Subjects",
+                    "Site: [UTA-RLDD](https://sites.google.com/view/utarldd/home)"
+                ],
+                [
+                    "**StateFarm**",
+                    "Distracted Driver Detection",
+                    "Phone · Eating · Radio · Reaching · ETC",
+                    "22K Images · 10 Classes",
+                    "Kaggle: [StateFarm](https://www.kaggle.com/c/state-farm-distracted-driver-detection)"
+                ],
+                [
+                    "**MPIIGaze**",
+                    "Max Planck Gaze Dataset",
+                    "Gaze Direction · Eye Appearance",
+                    "200K Images · 15 Subjects",
+                    "MPII: [MPIIGaze](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild)"
+                ],
+                [
+                    "**Face Mask**",
+                    "FFHQ & MaskedFace-Net",
+                    "No Mask · Mask · Incorrect Mask",
+                    "30K Images",
+                    "GitHub: [NVLabs](https://github.com/NVlabs/ffhq-dataset) · [cabani](https://github.com/cabani/MaskedFace-Net)"
+                ],
+                [
+                    "**Face Glasses**",
+                    "Glasses Detector Dataset",
+                    "No Glasses · Glasses · Sunglasses",
+                    "15K Images",
+                    "Kaggle: [mantasu](https://www.kaggle.com/datasets/mantasu/glasses-detector)"
+                ],
+                [
+                    "**Cabin Objects**",
+                    "COCO Cabin Subset + Custom",
+                    "Phone · Seatbelt · Cigarette · ETC",
+                    "36K Images",
+                    "COCO & Manual Collection"
+                ]
+            ]
+        }
+    },
+    {
+        "title": "Temporal Models - Lab Stage",
+        "subtitle": "LSTM-Based Datasets Held Back Pending Hardware Optimization.",
+        "body": {
+            "type": "text",
+            "data": [
+                "A subset of the datasets used, particularly those designed for **Temporal State Modeling**, carry sequential, multi-frame annotations that demand recurrent architectures. These were used to train **LSTM-Based Models** in a controlled lab environment, separate from the main edge deployment pipeline.",
+                "* **Why Not Integrated Yet?** LSTM inference on the Hailo-8L NPU requires careful memory and latency profiling. Sequential models do not compile to the NPU the same way single-frame detectors do, and naively deploying them risks breaking the **60ms Frame Budget** that the rest of the pipeline depends on.",
+                "* **What Was Done?** Models were trained to convergence in lab conditions and validated offline against held-out sequences. The bottleneck is the deployment layer, not the learning.",
+                "* **What Comes Next?** Full integration is an active optimization track, covered in depth in the **Decision Engine** chapter. The engine's session and processor architecture was deliberately designed to accommodate temporal models as first-class processors once the NPU compilation constraints are resolved.",
+                "**Current Active Approach** The system uses **Sliding Window Buffers** and **Per-Frame Voting**, accumulating predictions across a rolling window of frames and resolving the final state at the buffer level. This achieves temporal smoothing without stateful inference."
+            ]
+        }
+    },
+    {
+        "title": "DMD - Driver Monitoring Dataset",
+        "subtitle": "The Primary Source for Drowsiness, Distraction, and Gaze Labels.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The **Driver Monitoring Dataset (DMD)** was created by [Vicomtech](https://dmd.vicomtech.org) to address the shortage of data for training and testing driver monitoring systems based on computer vision. Published as part of **ICCV 2021**, it remains the most comprehensive publicly available dataset.",
+                "* **Scale**: 41 Hours of synchronized video across 37 Experienced Drivers, grouped into 6 subject groups recorded across morning and afternoon sessions to maximize lighting variability.",
+                "* **Modalities**: Three cameras per environment capturing:",
+                "  * An **RGB**, **IR**, and **Depth** streams simultaneously at 1280×720px.",
+                "  * A **Face**, **Body**, and **Hands** camera are aligned into a **Synchronized Mosaic**.",
+                "* **Environments**: Recordings span three modes covering both naturalistic and controlled distraction scenarios:",
+                "  * **Real Moving Vehicle** (S1)",
+                "  * **Stationary Real Car** (S2, S3, S5)",
+                "  * **Driving Simulator** (S4, S6)"
+            ]
+        }
+    },
+    {
+        "title": "DMD - Annotation Scheme",
+        "subtitle": "Multi-Dimensional Annotation Tracks for Tracking Drowsiness, Distraction, and Gaze Behavior.",
+        "body": {
+            "type": "text",
+            "data": [
+                "* **Annotation Format**: Labels are stored in **ASAM OpenLABEL JSON** format using the VCD library, providing frame-level temporal intervals rather than per-frame flat labels, a multi-dimensional structure where several annotation levels can simultaneously describe a single frame.",
+                "* **Annotation Tasks**: 3 parallel annotation tracks, each independently labeled per frame using multi-level temporal intervals:",
+                "  * **Drowsiness**: Eye state (open, closed, opening, closing), blink events, and yawn events (with/without hand), and microsleep onset markers.",
+                "    * These levels can co-occur: a closing eye and a yawn-with-hand are separate simultaneous annotations on the same frame.",
+                "  * **Distraction**: 14 driver action classes including: ",
+                "    * Safe driving, texting (l/r), phonecall (l/r), radio operation, gear change, drinking, reaching side/backseat, and talking to passenger.",
+                "    * Cross-referenced with object presence (cellphone, bottle, hair comb) and hands-on-wheel state (both, left only, right only, none).",
+                "  * **Gaze**: 9 defined fixation regions: front, left, right, left mirror, right mirror, center mirror, infotainment screen, and steering wheeld.",
+                "    * Annotated alongside a gaze-on-road binary flag and blink events, enabling both zone classification and road-attention estimation from the same source."
+            ]
+        }
+    },
+    {
+        "title": "DMD - Acquisition Pipeline",
+        "subtitle": "Streamlining Dataset Acquisition Through Remote Bridges, Selective Compression, and Manual Validation.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The full DMD release is distributed across separate download forms for each task branch, Drowsiness, Gaze, and Distraction, and totals approximately **25TB of Raw Video** across all subjects, sessions, and modalities. Downloading and storing the full dataset was not feasible within the project's infrastructure.",
+                "* **Bridge Script**: A Google Colab notebook was developed to act as a remote acquisition bridge. The script fetched the dataset **Chunk by Chunk**, selecting only the required modalities for our scope: the **RGB and IR Face Camera Streams**. Each chunk was **Compressed in Transit**, reduced the acquisition footprint from 25TB to approximately **15GB**, containing only the required videos and their corresponding annotation files across all 37 subjects.",
+                "* **Inspection Tool**: Following acquisition, a custom **Inspection and Validation Tool** was developed to it synchronizes each annotation file with its video source frame-by-frame to:",
+                "  * Reports label distribution per subject.",
+                "  * Ensures that annotation intervals fall within video bounds.",
+                "  * Flags any misaligned or corrupt entries before the data enters the training pipeline."
+            ]
+        }
+    },
+    {
+        "title": "DMD - Annotation Incompatibilities",
+        "subtitle": "Overcoming Structural Label Disparities and Spatial Localization Constraints Using Advanced Pose Estimation.",
+        "body": {
+            "type": "text",
+            "data": [
+                "Despite being the ideal dataset for the project use case, the annotation structure presented **Three Fundamental Incompatibilities**:",
+                "* **Multi-Level Annotations**: A single frame simultaneously carries multiple independent annotation tracks, but a flat YOLO label cannot represent this. The distraction branch exposed a deeper issue: **Visually Identical** states carry **Different Labels** depending on **Context**.",
+                "  * A single YOLO model trained on visual features alone cannot distinguish them, as the differentiating factor is behavioral context, not appearance. This forced the distraction branch into a **Multi-Detector Architecture**, where gaze, object presence, hand state, and driver action are handled by separate models and resolved at the decision layer.",
+                "* **No Bounding Boxes**: DMD annotations are per-frame state labels with no spatial localization. There are no bounding boxes, no class regions, no object coordinates. YOLO requires both a class and a box.",
+                "  * To solve this, a custom extractor used **MediaPipe Face Mesh** to localize the face region per frame and derive the bounding box, with the eye region extracted as a sub-crop for drowsiness signs. Yawn states cross-referenced the hand-occlusion level to determine the correct class.",
+                "  * However, it failed for gaze sessions at high lateral angles critical for left/right detection, got replaced by **MediaPipe Pose Landmarker** with additional head localizion code, which remained stable at angular extremes."
+            ]
+        }
+    },
+    {
+        "title": "DMD - Processing Pipeline",
+        "subtitle": "Transforming Temporal Annotation Intervals into Structured, Subject-Separated Formats for Model Training.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    0,
+                    0
+                ],
+                "cols": [
+                    3,
+                    2
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        1,
+                        2
+                    ],
+                    "type": "text",
+                    "data": [
+                        "* **Temporal Interval Format**: Annotations are stored as frame-interval spans in **ASAM OpenLABEL JSON**.",
+                        "  * The extraction process had to resolve which intervals were active at each frame index before any label could be written.",
+                        "  * All splits were performed at the **Subject Level** to prevent the same driver appearing across folds, a leakage source that inflates metrics without improving generalization."
+                    ]
+                },
+                {
+                    "index": [
+                        1,
+                        0
+                    ],
+                    "type": "text",
+                    "data": [
+                        "DMD Process **Summary**:",
+                        "  * **Fetch Chunk** > **Scope Filter** *(RGB & IR • Face Camera)* > **Compress** > **Download**",
+                        "  * **Inspect** *(Synchronize Annotations & Video Frames)*",
+                        "  * **Localize** > **Re-Label** *(YOLO Format)* > **Crop** *(MobileNet)* > **Split** *(Subject-Level)*",
+                        "---",
+                        "The **Result** was **2 Trainable Formats**:",
+                        "  * **YOLO** *(Frames with Bounding Box Labels)* and **MobileNet** *(Labeled Regions Crops)*."
+                    ]
+                },
+                {
+                    "index": [
+                        1,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD_0.png"
+                }
+            ]
+        }
+    },
+    {
+        "body": {
+            "type": "stack",
+            "metadata": "DMD Dataset Dashboard",
+            "data": [
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD_1.png",
+                    "fade": false
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD_2.png",
+                    "fade": false
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD_3.png",
+                    "fade": false
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD_4.png",
+                    "fade": false
+                },
+                {
+                    "type": "video",
+                    "data": "./Assets/CH4/DMD_5.mp4",
+                    "fade": false
+                }
+            ]
+        }
+    },
+    {
+        "title": "Model Architecture Strategy",
+        "subtitle": "",
+        "body": {
+            "type": "text",
+            "data": [
+                "Lynx's inference pipeline is powered by **Three Distinct Model Families**, each assigned exclusively to the task category they are architecturally built for, considering the nature of input and the expectations and requirements of the output.",
+                "* **MediaPipe**: Landmark detection foundation, sub-10ms keypoint extraction.",
+                "* **YOLO26n**: Spatial localisation across the full frame.",
+                "* **MobileNetV3-Small** / **EfficientNet**: High-Accuracy classification on pre-aligned crops.",
+                "---",
+                "Not all families operate independently. Some models provide **Full Standalone Functionality**:",
+                "* YOLO processes the raw uncropped frame directly, localising objects and states purely from what it was trained to detect",
+                "* MediaPipe operates the same way, extracting landmarks and blendshapes from the full frame and feeding a **Math and Logic Layer** *(Engine Lightweight Processor)* that derives real decisions from geometry and temporal events alone, no learned classifier.",
+                "The classification heads however are **Fully Dependent**:",
+                "* CNNs require a pre-detected, affine-aligned crop of the target region before they can classify anything."
+            ]
+        }
+    },
+    {
+        "title": "MediaPipe - Landmark Detection Layer",
+        "subtitle": "The Spatial Foundation Every Downstream Processor Depends On.",
+        "body": {
+            "type": "text",
+            "data": [
+                "MediaPipe forms the **Lowest Layer of Lynx Inference Stack**, it runs first on every frame and its outputs are the raw material for all signal extraction above it.",
+                "* **Face Mesh**: Produces 478 facial landmarks per frame, enabling **EAR**, **MAR**, **Head-Pose Estimation**, and the affine alignment transform used to crop the face region for all classification heads.",
+                "* **Pose**: Full-body 33-landmark skeleton, primarily used to **Diagnose Face Mesh Failures** at high lateral head angles, facial occlusions, or driver absence from frame. *(Previously Used to Crop the Chest Region for Seatbelt Classification, This Role Has Since Been Migrated to YOLO.)*",
+                "* **Hand**: 21 per-hand landmarks, primarily targeting **Hand-on-Face** events, a pose that both signals potential fatigue and directly obstructs the face mesh, degrading landmark quality and downstream metric reliability. Detecting this state allows the system to flag the occlusion source and adjust confidence accordingly.",
+                "---",
+                "MediaPipe is defined as **Industry-Standard** solution known for its robustness, extreme speed, and runs entirely on the **Raspberry Pi 5 CPU**, preserving the full Hailo-8L NPU budget for the deeper processing and classification layers."
+            ]
+        }
+    },
+    {
+        "title": "YOLO26n - Spatial Localisation Layer",
+        "subtitle": "Object and Region Detection Across the Full Frame.",
+        "body": {
+            "type": "text",
+            "data": [
+                "In practice, a classification head operating on a raw frame has no spatial grounding, it sees the entire scene as a flat feature map with no mechanism to isolate where a target object is or whether it is even present.",
+                "Object detection solves this: **YOLO26n** scans the full frame and produces localised bounding boxes for every target, giving downstream processors a spatially grounded region to reason about rather than blind full-frame inference.",
+                "* **Drowsiness Detection**: Localizes the eye and face regions **Under Conditions Where MediaPipe Landmarks Confidence Drops** below threshold.",
+                "* **Gaze Estimation**: Detects the gaze target zone within the cabin frame as a **Region-Level Classification** with spatial extent.",
+                "* **Distraction Objects**: Detects **Phone**, **Cup**, **Food**, and **Cigarette** in the full driver field of view. *(Object-to-Hand Is a Meaningful Signal)*",
+                "* **Seatbelt**: Detects the seatbelt strap, a **Physical State** that requires **Spatial Confirmation**, not landmark inference.",
+                "---",
+                "YOLO26n demonstrated **Strong Generalisation Across the Full Frame**, handling scale variation, partial occlusion, and domain shift robustly.",
+                "The **Nano** variant was selected specifically for its **Hailo-8L Compilation Compatibility** and its ability to sustain **Real-Time Throughput** without sacrificing detection recall on the target classes."
+            ]
+        }
+    },
+    {
+        "title": "CNNs - Classification Layers",
+        "subtitle": "High-Accuracy Semantic Enrichment on Pre-Detected Aligned Crops.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The classification layer resolves what each detected region means semantically. It operates on an isolated, normalized crop of the target region and produces a discrete class label. The crop source is irrelevant: MediaPipe landmark transform, YOLO bounding box, or any other detection stage. As long as the region is isolated and normalized, the classifier can act on it.",
+                "YOLO does output a class label alongside its bounding box, but this does not make it a classifier substitute. When a target object can be reliably isolated as a crop, a dedicated **CNN will Almost Always Outperform YOLO's Classification Head** on that region. It operates on a clean, noise-free input with a label space it was trained exclusively for, with no background competing for activation.",
+                "Most classifiers in Lynx are trained and deployed on **224×224 Aligned Crops** produced by the **Detector Module**, applying the same affine alignment pipeline at both training and deployment. This eliminates any domain gap introduced by differing crop strategies or scale between the two stages.",
+                "---",
+                "**EfficientNet** variants were evaluated in lab stages and achieved **Higher Accuracy** across most classification tasks, however they are **Not Currently Deployed**. Integration with the Hailo-8L NPU compilation pipeline is pending optimisation and remains a planned upgrade. **MobileNetV3-Small** was selected as the edge-ready alternative for its compilation compatibility and **Sub-5ms Inference** per head."
+            ]
+        }
+    },
+    {
+        "title": "Model Families - Comparison",
+        "subtitle": "A Structured Comparison of the Three Inference Layers.",
+        "body": {
+            "type": "table",
+            "metadata": {
+                "header": true
+            },
+            "data": [
+                [
+                    "**Property**",
+                    "**MediaPipe**",
+                    "**YOLO26n**",
+                    "**MobileNetV3-Small**"
+                ],
+                [
+                    "**Role**",
+                    "Landmark Extraction",
+                    "Spatial Localisation",
+                    "Semantic Classification"
+                ],
+                [
+                    "**Input**",
+                    "Full Frame",
+                    "Full Frame",
+                    "Pre-Cropped Aligned Region"
+                ],
+                [
+                    "**Output**",
+                    "Keypoints / Blendshapes",
+                    "Bounding Boxes + Class",
+                    "Discrete Class Label"
+                ],
+                [
+                    "**Processing Unit**",
+                    "Raspberry Pi 5 CPU",
+                    "Hailo-8L NPU",
+                    "Hailo-8L NPU"
+                ],
+                [
+                    "**Dependency**",
+                    "Standalone",
+                    "Standalone",
+                    "Requires Prior Detection"
+                ],
+                [
+                    "**Inference Speed**",
+                    "Sub-10ms",
+                    "Real-Time Nano",
+                    "Sub-5ms Per Head"
+                ],
+                [
+                    "**Trained On**",
+                    "Pretrained - No Fine-Tuning",
+                    "Custom DMD Datasets",
+                    "224×224 Aligned Crops"
+                ],
+                [
+                    "**Failure Mode**",
+                    "High Lateral Angle / Occlusion",
+                    "Small Object Scale Variance",
+                    "Domain Gap in Crop Source"
+                ]
+            ]
+        }
+    },
+    {
+        "body": {
+            "type": "stack",
+            "metadata": "Drowsiness YOLO Model Results",
+            "data": [
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/BoxF1_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/BoxP_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/BoxPR_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/BoxR_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/results.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/confusion_matrix_normalized.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/confusion_matrix.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/train_batch0.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/train_batch1.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/train_batch2.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/val_batch0_labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/val_batch0_pred.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/val_batch1_labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/val_batch1_pred.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/val_batch2_labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Drowsiness/val_batch2_pred.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "body": {
+            "type": "stack",
+            "metadata": "Gaze YOLO Model Results",
+            "data": [
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/BoxF1_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/BoxP_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/BoxPR_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/BoxR_curve.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/results.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/confusion_matrix_normalized.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/confusion_matrix.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/train_batch0.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/train_batch1.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/train_batch2.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/val_batch0_labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/val_batch0_pred.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/val_batch1_labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/val_batch1_pred.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/val_batch2_labels.jpg"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/DMD-Gaze/val_batch2_pred.jpg"
+                }
+            ]
+        }
+    },
+    {
+        "title": "Face Mask Detection",
+        "subtitle": "Gating Drowsiness Metrics Based on Facial Occlusion State.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The mouth region is a primary source of several critical drowsiness signals: **MAR** *(Mouth Aspect Ratio)*, yawn detection, and lip compression. A face mask physically occludes this region, making these metrics either **Unreliable or Invalid**.",
+                "Without mask awareness, a masked driver would never trigger mouth-based alerts regardless of their actual drowsiness state, a silent false-negative failure mode that cannot be tolerated in a safety-critical system.",
+                "Lynx resolves this using a dedicated **Ternary Mask Classifier** powered by a **MobileNetV3-Small** CNN, processing the aligned face region only.",
+                "Three states are recognized with over **97.5% Accuracy**:",
+                "* **No Mask**: All mouth metrics remain active.",
+                "* **Correct Mask**: The engine re-weights toward eye-closure and head-pose cues.",
+                "* **Incorrect Mask**: Classified separately and escalated as a **Driver Alert** rather than a silent gate, since partial occlusion produces corrupted rather than simply absent signals.",
+                "The mask state is evaluated **Every 30 Frames** *(Variable Interval)* and injected into the **Pre-Processing Context** before any mouth-based processor commits a decision."
+            ]
+        }
+    },
+    {
+        "title": "Face Mask Dataset",
+        "subtitle": "Two Complementary Sources Covering Real and Synthetic Occlusion.",
+        "body": {
+            "type": "text",
+            "data": [
+                "* **FFHQ** *(Flickr-Faces-HQ)*: **The Source** of all branches, Supplies the **No Mask** class.",
+                "  * Provides over 70K high-resolution faces with broad diversity across age, ethnicity, lighting, and pose. Chosen as the unmasked baseline for its unmatched demographic coverage.",
+                "* **MaskedFace** *(FFHQ-Mask)*: **Official Extension** of FFHQ that synthetically applies masks onto the same identities, contributing the **Mask** and **Incorrect Mask** branches.",
+                "  * Because both masked classes share the same face distribution as the unmasked class, the model is forced to learn occlusion boundaries rather than identity or demographic shortcuts.",
+                "---",
+                "Both datasets were passed through the **Same Detector Alignment Pipeline Used at the Deployment** producing cropped and normalized **224×224 Face Regions** identical in format to what the classifier receives at runtime.",
+                "The alignment stage generated a **Balanced Subset of 30K Images** *(No Mask, Mask, and Incorrect Mask)*."
+            ]
+        }
+    },
+    {
+        "body": {
+            "type": "stack",
+            "metadata": "Mask MobileNetV3-Small CNN Results",
+            "data": [
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/FaceUtils/mask_result.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/FaceUtils/mask_confusion_matrix.png"
+                }
+            ]
+        }
+    },
+    {
+        "title": "Glasses Detection",
+        "subtitle": "Classifying Eyewear State to Gate Occlusion-Sensitive Metrics.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The eye region is the primary source of the most critical drowsiness signal: **EAR** *(Eye Aspect Ratio)*. Sunglasses fully occlude the eyes, rendering EAR completely invalid, while prescription glasses introduce reflections and distortions that degrade its reliability. Without eyewear awareness, a driver wearing sunglasses would never trigger eye-closure alerts regardless of their actual state, the same silent false-negative failure mode as mask occlusion.",
+                "Lynx resolves this through a dedicated **Two-Stage Binary Eyewear Classifier** processing the aligned face region only.",
+                "Two decisions are made in sequence:",
+                "* **Glasses Binary** *(Glasses or No Glasses)*: Determines whether any eyewear is present with over **97% Accuracy**. If no glasses detected, EAR and blink metrics remain fully active.",
+                "* **Glasses Type** *(Eyeglasses or Sunglasses)*: Applied only when confirmed glasses presence, with over **98% Accuracy**. Prescription glasses allow degraded-confidence EAR; sunglasses gate it entirely and escalate a **Driver Alert**.",
+                "The eyewear state is evaluated **Every 15 Frames** *(Variable Interval)* and injected into the **Pre-Processing Context** before any eye-based processor commits a decision."
+            ]
+        }
+    },
+    {
+        "title": "Glasses Dataset & Initial Approach",
+        "subtitle": "A Consolidated Multi-Source Collection Processed for Binary Training.",
+        "body": {
+            "type": "text",
+            "data": [
+                "* **Glasses Detector Dataset** *(Kaggle)*: A wide aggregation of multiple publicly available eyewear datasets consolidated into a single collection, covering prescription glasses, sunglasses, and bare faces across diverse demographics, lighting conditions, and poses.",
+                "  * The raw dataset underwent standard preprocessing, involving the flattening of directory structures, removal of duplicate entries, and normalization of labels into a unified format compatible with the alignment pipeline.",
+                "The initial approach mirrored the mask classifier exactly, **Ternary CNN** trained to distinguish eyeware state in one shot. however, the model failed to converge to acceptable accuracy despite multiple training runs and hyperparameter adjustments.",
+                "Diagnosis revealed the **Root Cause**:",
+                "  * The glasses and sunglasses branches originated from **Different Source Datasets** with mismatched demographics, lighting, and image quality.",
+                "  * The ternary model was exposed to two distinct face distributions under the same label space, causing it to latch onto **Domain-Level Features** *(Skin Tone, Background, Image Statistics)* rather than the glasses region itself.",
+                "  * The aligned crop still contains the full face, providing enough **Surrounding Context** to exploit these shortcuts instead of focusing on the eyewear.",
+                "Splitting the problem into **Two Binary Classifiers** resolved the domain confusion entirely."
+            ]
+        }
+    },
+    {
+        "body": {
+            "type": "stack",
+            "metadata": "Glasses MobileNetV3-Small CNN Results",
+            "data": [
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/FaceUtils/glasses_binary_result.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/FaceUtils/glasses_binary_confusion_matrix.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/FaceUtils/glasses_type_result.png"
+                },
+                {
+                    "type": "image",
+                    "data": "./Assets/CH4/FaceUtils/glasses_type_confusion_matrix.png"
+                }
+            ]
+        }
+    },
+    {
+        "title": "Chapter 5: System Overview",
+        "subtitle": "Core Features, Module Structure, and Perception Pipeline."
+    },
+    {
+        "title": "The Perception Layer",
+        "subtitle": "Before Any Decision Is Made, the System Must First Reliably See.",
+        "body": {
+            "type": "text",
+            "data": [
+                "Every layer of Lynx depends on a single upstream guarantee, which is knowing:",
+                "  * **Where the Driver Is**, **What State Their Face and Body Are In**, and **Whether the Frame Can Be Trusted**.",
+                "The foundational **Perception Layer** driven by the **Detector Module** provides this, a **Standardized Pipeline** transforms raw frames into structured signals, information, and features:",
+                "  * **Landmarks**, **Bounding Boxes**, **Head Pose**, **Gaze**, and an **Environmental Assessment Scores**.",
+                "**Detector** is **MediaPipe-Based Orchestrator** unifies face, pose, and hand analysis under one API, augmented by **Two Rolling-Buffer Engines** *(Quality and Liveness)* and **One Classifier** *(For Future Demographic Adaptation)*.",
+                "The system deploys a **Three-Model Framework** to map frame content in high fidelity, extracting:",
+                "  * **478 Face Mesh Landmarks**, **33 Pose Landmarks**, and **21 Hand Landmarks** *(Each Hand)*.",
+                "The system achieves complete frame awareness by tracking these models simultaneously, by immediately **Diagnosing** the frame to understand the context of any face mesh absence, whether it signifies a critical driver movement, extreme occlusion, or unresolvable environmental conditions."
+            ]
+        }
+    },
+    {
+        "title": "Detector - Architecture Overview",
+        "subtitle": "One Orchestrator, Three Landmarkers, Three Supporting Engines.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [0],
+                "cols": [5, 3]
+            },
+            "data": [
+                {
+                    "index": [0, 0],
+                    "type": "text",
+                    "data": [
+                            "* `detect_face()`: Executes the **FaceLandmarker** to derive EMA-smoothed landmarks, bounding boxes, blendshapes, and facial transformation matrices.",
+                            "  * Serves as the standard per-frame inference call, interrupted by a full-scan routine upon face mesh occlusion or every 5 frames to re-anchor global state.",
+                            "* `detect_pose()`: Executes the **PoseLandmarker** to derive body geometry *(Lateral Offset, Lean, and Turn Flags)* and determine driver presence status.",
+                            "  * Previously, `chest=True` isolated the chest ROI for the seatbelt classification.",
+                            "* `detect_hand()`: Executes the **HandLandmarker** to track the nearest hand to the face, quantifying occlusion levels to detect behavioral indicators like hand-to-mouth movement *(Suspect Yawning)* or hand-to-eye coverage *(Visual Obstruction)*.",
+                            "* `detect_full()`: Aggregates all three markers into a unified `FullPayload` for comprehensive frame analysis."
+                        ]
+                },
+                {
+                    "index": [0, 1],
+                    "type": "image",
+                    "data": "./Assets/CH5/Detector_1.png",
+                    "metadata": "Detector Orchestrator: Face, Pose, and Hand Landmarkers."
+                }
+            ]
+        }
+    },
+    {
+        "title": "Face Detection & Alignment",
+        "subtitle": "From Raw Landmarks to a Canonical, Analysis-Ready Crop.",
+        "body": {
+            "type": "text",
+            "data": [
+                "`detect_face()` is the busiest entry point in the module and stands as the main API for facial analysis. But a face rarely tells the whole story on its own, so it's designed to work alongside the pose and hand landmarkers, which supply the broader body context needed for more context-aware, whole-person understanding.",
+                "* **EMA Smoothing**: An Exponential Moving Average applied to both landmarks and the bounding box, blending each new frame's result with the previous frame's output. A single `smooth` factor controls the blend weight, higher favors responsiveness, lower favors stability, damping jitter from frame-to-frame detection noise.",
+                "* **STRICT Mode**: Validates that all landmarks fall within normalized `[0,1]` bounds before returning a result. If any landmark falls outside this range, `detect_face()` returns an empty payload instead of corrupted coordinates, trading a little recall for guaranteed output integrity in pipelines with no human in the loop.",
+                "* **Alignment**: When `alignment=True`, the detector computes a **Rotation-Scale-Translate Matrix** producing a canonical `size×size` RGB crop through a six-step geometric pipeline *(Covered Next)* and `BGR2RGB` conversion.",
+                "* **Euler Angles**: Computes **Yaw**, **Pitch**, and **Roll** via `cv2.solvePnP` against a generic 3D face model."
+
+            ]
+        }
+    },
+    {
+        "title": "Alignment: Rotation-Scale-Translate",
+        "subtitle": "Six Stages to a Canonical and Centered Face Region.",
+        "body": {
+            "type": "table",
+            "metadata": { "header": true },
+            "data": [
+                ["Stage", "Process"],
+                ["**Vector Determination**", "Identify the outer bounds of the face and compute geometric midpoints for both eyes to establish a reliable horizontal baseline."],
+                ["**Tilt Evaluation**", "Analyze the offsets between the eyes to determine the exact rotational angle required to level the face completely upright."],
+                ["**Spatial Boundary Prediction**", "Project the facial points through a test rotation to measure how the bounding box shifts and expands under the calculated angle."],
+                ["**Proportional Scaling**", "Evaluate the rotated face dimensions, add a padding buffer, and establish a scaling factor to guarantee the face fits uniformly into the destination canvas."],
+                ["**Centroid Alignment**", "Combine the rotation and scale parameters into a final transformation matrix, adjusting offsets to anchor the center of the face at the middle of the target canvas."],
+                ["**Geometric Warping**", "Transform the original image using high-fidelity interpolation to prevent jagged edges, while filling any empty margins by mirroring edge pixels."]
+            ]
+        }
+    },
+    {
+        "title": "Euler Angles: Pose Estimation",
+        "subtitle": "Solving Head Rotation from 2D Landmarks via PnP",
+        "body": {
+            "type": "table",
+            "metadata": { "header": true },
+            "data": [
+                ["Stage", "Process"],
+                ["**3D Model Reference**", "Define a fixed, generic 3D face model *(Nose Tip, Chin, Eye Corners, Mouth Corners)* as canonical points independent of the frame."],
+                ["**2D Landmark Mapping**", "Pull the corresponding 2D pixel coordinates for those 6 points from the detected landmarks *(Scaled to the Frame's Width and Height)*."],
+                ["**Camera Matrix Assembly**", "Approximate a camera intrinsics matrix from the frame dimensions, treating focal length as equal to frame width and centering the principal point on the frame."],
+                ["**PnP Solve**", "Run `solvePnP` to compute the rotation vector and translation vector that best map the 3D model points onto the 2D positions."],
+                ["**Rotation Matrix**", "Convert the solved rotation vector into a full `3×3` rotation matrix via Rodrigues' formula."],
+                ["**Projection Decomposition**", "Stack the rotation matrix with the translation vector into a projection matrix and decompose it to extract raw Euler angles *(Yaw, Pitch, Roll)*."],
+                ["**Angle Correction**", "Apply a yaw offset calibration, and unwrap pitch/roll values past `±90°` back into a continuous, intuitive range."]
+            ]
+        }
+    },
+    {
+        "title": "ENV Engine",
+        "subtitle": "Judging Whether the Current Frame Can Even Be Trusted.",
+        "body": {
+            "type": "table",
+            "metadata": { "header": true },
+            "data": [
+                ["Metric", "How It's Computed", "Flag Logic"],
+                ["**Visibility**", "LAB L-Channel mean *(Lightness)*, blended `25%` whole-frame + `75%` face-crop, normalized to `[0,1]`.", "`LOW` below the lower threshold, `HIGH` above the upper threshold."],
+                ["**Clarity**", "Standard deviation of the face-crop's L-Channel, normalized, a proxy for texture/sharpness *(Flat, Blurry Face Reads Low)*.", "`LOW` if under-textured, `HIGH` if over the upper bound."],
+                ["**Occupancy**", "Bounding-Box area over the whole frame area.", "`HIGH` below the lower threshold *(Too Small / Far)*, `LOW` above the upper threshold *(Too Large / Close)*."],
+                ["**Constancy**", "Only computed once ≥10 frames of an 8-point landmark history are buffered. Combines 2 terms both normalized by face diagonal size:\n\n\n**Spike** *(Max Displacement Over the Last 2 Frames)*\n\n\n**Sustained** *(Mean Displacement × 0.3)*", "`NORMAL` if `constancy ≤` threshold, else `LOW`"]
+            ]
+        }
+    },
+    {
+        "title": "PAD Engine",
+        "subtitle": "Passive, Single-Camera Liveness Detection.",
+        "body": {
+            "type": "table",
+            "metadata": { "header": true },
+            "data": [
+                ["Cue (Weight)", "Method", "What It Catches"],
+                ["**LBP Texture** *(30%)*", "Local Binary Pattern histogram entropy over the grayscale crop.", "Real skin carries richer, more chaotic micro-texture than a printed photo or a screen's flat pixel grid."],
+                ["**HF Power** *(20%)*", "2D FFT split into low- vs. high-frequency energy.", "Screens and prints tend to suppress or exaggerate high-frequency detail relative to natural skin's frequency signature."],
+                ["**Local Contrast** *(15%)*", "Gaussian-blur residual std relative to mean brightness.", "Real skin has a specific micro-contrast band; screens tend to be too smooth, heavy print texture too coarse."],
+                ["**Skin-Tone Colour** *(10%)*", "YCbCr chrominance band membership.", "Screen replays and prints commonly shift colour reproduction outside natural skin chrominance ranges."],
+                ["**Specular Reflection** *(5%)*", "Highlight-pixel ratio from grayscale thresholding.", "Distinguishes natural skin sheen from a glossy screen glare or a flat matte print."],
+                ["**Temporal Motion** *(5%)*", "Frame-to-frame grayscale difference across the buffer.", "Near-zero motion is a strong spoof signal."],
+                ["**Aggregation & Timing**", "Weighted sum of spatial cues, blended with temporal at a fixed split.", "Only reported once the rolling buffer is completely full, never a single-frame snap judgment."]
+            ]
+        }
+    },
+    {
+        "title": "The Recognizer - Identity as a Gate",
+        "subtitle": "The Main Security Feature of the Lynx System.",
+        "body": {
+            "type": "text",
+            "data": [
+                "Where the Detector answers what is happening in front of the camera, the **Recognizer** answers a narrower, security-critical question: **Is This a Driver We Know, and Are They Really Here?**",
+                "It is the module behind two concrete capabilities exposed in the Drivers UI module:",
+                "* **Drivers** *(Add Driver)*: Building a whitelist of driver profiles, each backed by multiple stored face embeddings.",
+                "* **Verification**: Deciding on the entry page whether the person in frame matches an enrolled profile closely enough, and is confirmed live, to be **Accepted**, or otherwise **Rejected** and **Logged**.",
+                "---",
+                "Built directly on top of the Detector Suite, it re-uses face detection, alignment, and the PAD liveness engine, then adds an identity-embedding layer *(ArcFace)* and a locally fine-tuned adapter network on top.",
+                "The Recognizer orchestrates four components behind one per-frame API:",
+                "  * **Detector**, **ArcFace Embedder**, **MLP Adapter**, and **WhitelistDB**."
+            ]
+        }
+    },
+    {
+        "title": "Recognizer - Architecture Overview",
+        "subtitle": "Detector, ArcFace Embedder, MLP Adapter, and Whitelist Database.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [0],
+                "cols": [5, 3]
+            },
+            "data": [
+                {
+                    "index": [0, 0],
+                    "type": "text",
+                    "data": [
+                        "* **`Detector`**: locates, aligns, and smooths the face, and, since `Recognizer` construction globally enables `Detector.ACTIVATE_PAD`, feeds every aligned crop into the shared liveness engine automatically.",
+                        "* **`_Embedder`**: ArcFace ONNX wrapper turning a 112×112 aligned crop into a 512-d identity vector.",
+                        "* **`_Adapter`**: Locally trained MLP that re-projects that 512-d space into a sharper, 128-d space specific to the enrolled gallery.",
+                        "* **`WhitelistDB`**: a SQLite-Backed store of enrolled identities and their embeddings.",
+                        "---",
+                        "Recognition `look()` is designed to be called **Repeatedly** *(15–30 Times)* on a continuous stream from the entry camera, so it is decided on a **Temporally-Smoothed** query embedding, averaged over a rolling buffer, never a single frame, matched by top-3-average cosine similarity against the gallery."
+                    ]
+                },
+                {
+                    "index": [0, 1],
+                    "type": "image",
+                    "data": "./Assets/CH5/Recognizer.png",
+                    "metadata": "Detector, Embedder, Adapter, to Whitelist Match."
+                }
+            ]
+        }
+    },
+    {
+        "title": "Embedding - ArcFace",
+        "subtitle": "Turning a Face Crop Into a 512-Dimensional Identity Vector.",
+        "body": {
+            "type": "text",
+            "data": [
+                "`_Embedder` wraps InsightFace's **ArcFace `w600k_r50`** ONNX model. Its expected input is a `112×112` RGB aligned crop, the exact format produced by the Detector's alignment step.",
+                "The preprocessing pipeline is fixed and standard:",
+                "  * Cast to `float32`",
+                "  * Normalize `(x - 127.5) / 128.0`",
+                "  * Convert `HWC → CHW`",
+                "  * Add a batch dimension and Run inference.",
+                "  * L2-normalize the output into a unit-length embedding.",
+                "---",
+                "**Similarity Ranges**: same-person cosine similarity typically `0.60-0.90`; different-person typically `0.20-0.40`.",
+                "However, it performed **Really Bad** before the adapter was introduced."
+            ]
+        }
+    },
+    {
+        "title": "Adapter - Metric Learning",
+        "subtitle": "Sharpening the Generic ArcFace Space Through Hard Triplet Mining.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The 512-d ArcFace space is general-purpose. `_Adapter` is a small, **Optional** `Linear(512→256) → ReLU → Linear(256→128) → L2-Normalize` network trained specifically to widen the gap between the identities actually enrolled in this deployment.",
+                "* **Training** *(Online Hard Triplet Mining)*: Per batch, it finds each anchor's hardest positive *(Same Identity, Largest Distance)* and hardest negative *(Different Identity, Smallest Distance)*, and backpropagates a margin-based triplet loss with a hand-rolled Adam update.",
+                "* **Graceful Degradation**: If untrained, `project()` returns embeddings unchanged, the pipeline runs on raw ArcFace similarity. If projection ever fails at inference, it silently falls back to the raw embedding rather than raising.",
+                "* **Benchmark**: Verification confidence improved by **+35%**, through reduced intra-class variance and a widened inter-class margin, over raw ArcFace alone.",
+                "---",
+                "Whenever the enrolled gallery changes, the adapter is explicitly invalidated and **Must Be Retrained**; a stale adapter trained against a previous gallery can warp the space incorrectly.",
+                "This is exactly why projected embeddings are **Computed and Cached Only at the Start of Each Recognition Pass** rather than stored permanently."
+            ]
+        }
+    },
+    {
+        "title": "Recognition Pipeline API",
+        "subtitle": "Enrollment, Training, and Per-Frame Recognition at a Glance.",
+        "body": {
+            "type": "table",
+            "metadata": { "header": true },
+            "data": [
+                ["**Function**", "**Purpose**", "**Key Behavior**", "**Requirements / Notes**"],
+                ["**`meet()`**", "Enroll a new driver profile from a set of frames.", "Each frame runs independently through **Detect → Align → Embed**; every successfully processed frame becomes a separate stored embedding.", "Needs at least one successful embedding to create the record. Does **not** auto-retrain, `tune()` must be called separately."],
+                ["**`forget()`**", "Remove an enrolled driver profile.", "Deletes the profile and its adapter weights entirely.", "Forces the next `tune()` call to retrain from scratch."],
+                ["**`tune()`**", "Retrain the adapter against the current embedding gallery.", "Pulls the full gallery from `WhitelistDB`, trains via `_Adapter.train()`, persists weights, then clears the projected-embedding cache.", "Requires **at least 2 enrolled identities** (triplet loss needs >1 class). Optional, `use_adapter=False` falls back to raw ArcFace similarity, safer for very small galleries."],
+                ["**`look()`**", "Per-frame recognition decision.", "Returns `located` (face detected/aligned), `known` (similarity + liveness both pass), `name/id/chat_id` (matched profile), `confidence` (top-3-avg cosine similarity), and `pad/pad_score` (liveness verdict, once the PAD buffer fills).", "The pipeline's live, per-frame entry point, depends on both the tuned adapter and the PAD engine being warmed up."]
+            ]
+        }
+    },
+    {
+        "title": "Chapter 6: The Decision Engine",
+        "subtitle": "Architecture Layers, Session Management, and Workflow."
+    },
+    {
+        "title": "The Engine - Central Decision Unit",
+        "subtitle": "Fusing Perception and Recognition Outputs Into Per-Frame Driver State.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The **Engine** is Lynx's **Core Decision Unit**, the **Per-Frame Orchestrator** that uses everything the **Detector** produces and turns it into a structured set of **Signals**. It owns the **Session**, a dedicated **Detector** instance, and a shared **EngineAPI** object *(Single Source of Truth for Decisions and Status)*, alongside two auxiliary models:",
+                "  * **FaceUtilsClassifier** *(Glasses and Face Mask)*",
+                "  * **YOLOCoreUnit** *(Seatbelt, Phone, Food/Drink, Smoking, and Objects)*.",
+                "Each call to `process()` runs a single frame through a **Pulse-Gated Pipeline**, where expensive sub-tasks *(Environment Checks, Full-Body Scans, Utility Classification, YOLO Scans)* only fire on their own cadence rather than every frame.",
+                "Architecturally, the engine is built around **Multiple Processor Tiers** of **Varying Depth and Complexity**, selected dynamically depending on the system's load and confidence. The design anticipates adaptive switching between tiers, so depth can scale with available headroom, though **Only the Lightweight Path is Production-Ready Today**.",
+                "Only one processor is `self.core` at any time, and every `process()` call hands its fully assembled `FrameContext` to whichever tier is currently active through `session.run()`."
+            ]
+        }
+    },
+    {
+        "title": "Per-Frame Processing Pipeline",
+        "subtitle": "From Cooldown Checks to a Fully Assembled Frame Context.",
+        "body": {
+        "type": "grid",
+        "metadata": { "rows": [0], "cols": [2, 1] },
+        "data": [
+            {
+                "index": [0, 0],
+                "type": "text",
+                "data": [
+                    "* **Cooldown Gate**: If a cooldown pulse is due, the frame is marked `COOLDOWN` and skipped entirely, no detection work is spent on it.",
+                    "* **Environment Pulse**: Reads the detector's rolling `ENVEngine` status and raises visibility, clarity, distance, and constancy decisions.",
+                    "* **Detection Routing**: A full scan *(Face, Pose, and Hand)* runs on its own cadence or whenever an issue carried over from the previous frame, otherwise a lighter face-only scan is used.",
+                    "* **Occlusion Handling**: Face coverage raises a presence decision and flags an ongoing issue; generic hand occlusion raises presence due to the drop of face mesh.",
+                    "* **Classification**: With a clean, aligned face, the face utils and YOLO models each fire on their own cadence.",
+                    "* **Context Assembly**: Everything collected is bundled into a `FrameContext` and handed to the active processor tier."
+                ]
+            },
+            { "index": [0, 1], "type": "image", "data": "./Assets/CH6/Engine.png", "metadata": "Engine Per-Frame Pipeline." }
+        ]
+        }
+    },
+    {
+        "title": "Signal Generation",
+        "subtitle": "Turning Raw Model Outputs Into Structured Decisions.",
+        "body": {
+            "type": "table",
+            "metadata": { "header": true },
+            "data": [
+                ["Source", "Signals raised", "Logic"],
+                ["**Environment Engine**", "Visibility · Clarity · Distance · Constancy", "Each metric reports its own flag from the detector's rolling ENVEngine status, raised at high severity when abnormal, cleared when normal."],
+                ["**Face Utils Classifier**", "Glasses · Face Mask", "Glasses severity rises specifically for sunglasses, and mask severity rises for any non no-mask verdict, each carrying its own confidence score."],
+                ["**YOLO Core Unit**", "Seatbelt · Phone Use · Consumption · Smoking · Common Objects", "Phone use is the only signal raised at critical severity, reflecting its weight as the most direct distraction indicator; the rest scale from low to moderate."],
+                ["**Lightweight Processor**", "Drowsiness · Distraction · Yawning · Action", "Responsible for synthesizing raw driver state inputs into baseline situational awareness decisions. It monitors fluctuations in driver attention, gauges physical fatigue through eye and mouth patterns, filters out normal driver speech, and tracks continuous gaze deviations to assess real-time risk trends and flag critical operational distractions like phone interactions."]
+            ]
+        }
+    },
+    {
+        "title": "Chapter 7: Hardware & Deployment",
+        "subtitle": "The Edge Device, Quantization, and Prototype Enclosure."
+    },
+    {
+        "body": { "type": "custom", "data": "./device3D.js", "metadata": "renderDevice" }
+    },
+    {
+        "title": "The Edge AI Appliance",
+        "subtitle": "All Sensing, Inference, and Alerting Run Locally, With No Cloud in the Loop.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The DMS is built as a self-contained **Edge AI Appliance**: every stage of sensing, inference, and alerting executes locally on embedded hardware.",
+                "This is a requirement for a safety-critical system, **Low-Latency, Continuous Operation Must Survive the Absence of Network Connectivity**.",
+                "---",
+                "The platform is built from **Five Principal Components**:",
+                "  * **Raspberry Pi 5**: Runs the OS, manages every peripheral, and orchestrates the whole DMS stack.",
+                "  * **AI HAT+** *(13 TOPS Hailo Accelerator)*: Carries the deep learning inference load the Pi's CPU alone can't sustain in real time.",
+                "  * **Camera Module** *(USB Camera)*: The system's only eye on the driver, the source frame every downstream decision depends on.",
+                "  * **Audio Module** *(USB Speaker)*: Converts a silent detection into an audible warning the driver can actually react to.",
+                "  * **Screen & Enclosure**: Houses the stack and surfaces live status and alerts where the driver can see them.",
+                "Each part fills one distinct role, together forming a **Compact**, **Self-Contained**, **Power-Efficient Platform** purpose-built for in-vehicle deployment."
+            ]
+        }
+    },
+    {
+        "title": "The Hardware Stack",
+        "subtitle": "Five Components, Each Selected For a Distinct Functional Role.",
+        "body": {
+            "type": "table",
+            "metadata": {
+                "header": true
+            },
+            "data": [
+                [
+                    "**Component**",
+                    "**Usage**",
+                    "**Ideal Requirement**",
+                    "**Current Status**"
+                ],
+                [
+                    "**Raspberry Pi 5**",
+                    "Central processing & control unit",
+                    "SBC with headroom for OS, UI, and I/O without bottlenecking the perception",
+                    "**Justified**"
+                ],
+                [
+                    "**AI HAT+**",
+                    "Dedicated AI inference",
+                    "GPU or NPU to run several models in real time at low power",
+                    "**Justified**"
+                ],
+                [
+                    "**Camera Module**",
+                    "Capturing the driver's face",
+                    "Global shutter, high resolution, IR / night-vision support",
+                    "Standard **USB Webcam**, no suitable global-shutter / IR camera was found within prototype budget and availability"
+                ],
+                [
+                    "**Audio Module**",
+                    "Delivering audible alerts",
+                    "Single USB device with an integrated microphone input",
+                    "Small **USB Speaker**, output only, no combined unit was found that fit the prototype's size and cost constraints"
+                ],
+                [
+                    "**Screen & Enclosure**",
+                    "Presenting GUI & status; housing the assembly",
+                    "Compact, vehicle-mountable display; a rugged, securely mountable enclosure",
+                    "Standard **HDMI Display** in a **Custom 3D-Printed Enclosure**, functional as a prototype, but requires further reinforcement"
+                ]
+            ]
+        }
+    },
+    {
+        "title": "Why This Hardware Was Selected",
+        "subtitle": "Balancing Real-Time Inference, Cost, Power, and Portability.",
+        "body": {
+            "type": "text",
+            "data": [
+                "A bare Raspberry Pi is the cheapest, most portable option, but **CPU-Only Inference Cannot Sustain Real-Time Vision Processing**. An NVIDIA Jetson matches the AI HAT+ on performance but at **Higher Cost and Power Draw**, and a desktop PC offers the highest raw throughput but is **Unsuitable for In-Vehicle Deployment**.",
+                "---",
+                "The Raspberry Pi 5 & AI HAT+ configuration was the balanced choice:",
+                "  * **Edge AI**: All inference runs locally, no network dependency.",
+                "  * **Real-Time Inference & Low Latency**: Continuous, low-delay analysis of driver state.",
+                "  * **Low Power Consumption**: Suitable for sustained operation within a vehicle's power budget.",
+                "  * **Low Cost**: Far more accessible than the commercial DMS hardware already on the market.",
+                "  * **Portable**: Compact enough for sustained, in-vehicle operation.",
+                "  * **Scalable**: Modular architecture, ready for future sensors and algorithms."
+            ]
+        }
+    },
+    {
+        "title": "Why an NPU, Not Just a CPU",
+        "subtitle": "13 TOPS of Dedicated Silicon Built Around the Shape of a Neural Network.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1
+                ],
+                "cols": [
+                    3,
+                    1
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "type": "text",
+                    "data": [
+                        "A **Neural Processing Unit** is built around fixed-function data paths and reduced-precision arithmetic, tailored exactly to the matrix and convolution operations that drive neural network inference, unlike a CPU's general purpose sequential design or a GPU's broad parallel floating-point focus.",
+                        "**13 TOPS** means the Hailo accelerator on the AI HAT+ can perform up to **13 Trillion INT8 Operations Per Second**.",
+                        "---",
+                        "Running that same NPU-bound inference load on the Pi's CPU alone instead tells a very different story:",
+                        "  * **Low Frame Rates**: General-Purpose instructions are a poor fit for dense matrix and convolution math.",
+                        "  * **High Latency**: Each frame takes meaningfully longer to process, eroding the system's real-time guarantee.",
+                        "  * **Wasted Power**: More cycles spent per inference for a worse result.",
+                        "Loading that workload to the Hailo NPU instead delivers **Higher Throughput** at **Lower Power** and **Lower Latency**."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1,
+                        1,
+                        1
+                    ],
+                    "type": "text",
+                    "data": [
+                        "**CPU**",
+                        "* General-Purpose, Sequential",
+                        "* High Latency for Inference",
+                        "---",
+                        "**GPU**",
+                        "* Massive Parallel FP Compute",
+                        "* Too Power-Hungry for Edge Use",
+                        "---",
+                        "**NPU (Hailo)**",
+                        "* Built for Neural Inference",
+                        "* Low Latency, High Power Efficiency"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "title": "Parallel by Design",
+        "subtitle": "Thousands of Simple Units, Not One Fast One.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The CPU is a **Sequential Specialist**: One flexible fast core stepping through complex, conditional instructions one at a time.",
+                "The NPU is the opposite, a **Parallel Specialist**: It just needs to repeat the same kind of math, matrix multiplication and convolution, **Thousands of Times Simultaneously**.",
+                "That parallelism is built into the unit itself:",
+                "  * **Processing Elements (PEs)**: Hundreds to thousands of simple cores compute simultaneously instead of looping one calculation at a time.",
+                "  * **Matrix Operations**: A neural network is essentially a stack of number grids, so the NPU is hard-wired to multiply and add entire grids in one pass rather than iterating through them.",
+                "  * **On-Chip Dataflow**: Data moves through the parallel pipeline via specialized on-chip memory, avoiding the back-and-forth to system RAM that would otherwise bottleneck it.",
+                "  * **Low-Precision (INT8) Arithmetic**: Simpler math means more parallel operations fit in the same silicon area and power budget."
+            ]
+        }
+    },
+    {
+        "title": "One Chip, Several Models",
+        "subtitle": "How the Hailo NPU Runs Multiple Networks Without Multiple Accelerators.",
+        "body": {
+            "type": "grid",
+            "metadata": {
+                "rows": [
+                    1
+                ],
+                "cols": [
+                    0,
+                    0
+                ]
+            },
+            "data": [
+                {
+                    "index": [
+                        0,
+                        0
+                    ],
+                    "type": "text",
+                    "data": [
+                        "The full picture is: **Massively Parallel Math Within Each Model**, stepped through **Sequentially Across Models**, and that combination is exactly where the speed comes from.",
+                        "Each step's parallel math finishes fast enough that multiple sequential *(Internally-Parallel)* models still fit inside one frame's time budget.",
+                        "Which is why the NPU isn't a faster sequential processor, but **Thousands of Simple Operations Happening at Once**.",
+                        "---",
+                        "Anyway, the NPU's parallelism is built on **Fixed INT8 Precision**, so every model deployed to it must first go through **Quantization**, trading away some numerical accuracy for the throughput gain, a cost the CPU and GPU don't carry."
+                    ]
+                },
+                {
+                    "index": [
+                        0,
+                        1
+                    ],
+                    "type": "image",
+                    "data": "./Assets/CH7/CPU_GPU_NPU.png",
+                    "metadata": "CPU, GPU, and NPU.",
+                    "fade": false
+                }
+            ]
+        }
+    },
+    {
+        "title": "What Is Quantization?",
+        "subtitle": "Trading a Sliver of Precision for a Large Gain in Speed and Power.",
+        "body": {
+            "type": "text",
+            "data": [
+                "**Quantization** converts a model's weights and activations from high-precision **FP32 Floating-Point** to low-precision **INT8 Integers**. The Hailo NPU's compute units are built around INT8 arithmetic, so quantization is mandatory before a model can run on it.",
+                "FP32 carries more numerical detail but costs more memory bandwidth and more complex arithmetic circuitry to process. INT8 cuts that data volume dramatically, fewer bits to move, simpler operations to execute, at the cost of some precision.",
+                "---",
+                "The bridge between the two is **Calibration**: a representative batch of real input data is passed through the model so the compiler can observe the actual range each layer's activations span. Those observed ranges decide how floating-point values get scaled and rounded into 8-bit integers. Skip calibration, or calibrate on unrepresentative data, and the chosen integer ranges can **Clip or Coarsely Quantize** values that mattered, introducing avoidable accuracy loss."
+            ]
+        }
+    },
+    {
+        "title": "The Quantization Pipeline",
+        "subtitle": "From a Trained ONNX Model to a Hardware-Ready HEF Binary.",
+        "body": {
+            "type": "table",
+            "metadata": {
+                "header": true
+            },
+            "data": [
+                [
+                    "**Stage**",
+                    "**What Happens**"
+                ],
+                [
+                    "**ONNX**",
+                    "The trained model is exported to ONNX, a framework-agnostic graph + weights representation"
+                ],
+                [
+                    "**Parse**",
+                    "A **ClientRunner** targeting the **hailo8l** architecture translates the ONNX graph into Hailo's native network representation"
+                ],
+                [
+                    "**Checkpoint**",
+                    "The parsed graph is saved as a **Hailo Archive** *(.har)*, a portable checkpoint between parsing and optimization"
+                ],
+                [
+                    "**Calibration**",
+                    "A representative image sample is collected per class, resized and normalized, and stacked into a calibration array"
+                ],
+                [
+                    "**Optimize**",
+                    "The runner consumes the HAR and calibration data to compute per-layer activation ranges and quantize weights/activations to INT8"
+                ],
+                [
+                    "**Compile**",
+                    "The optimized graph is compiled into the final **HEF (Hailo Executable Format)** binary"
+                ],
+                [
+                    "**Deploy**",
+                    "The HEF is loaded onto the AI HAT+ and invoked at runtime through the **HailoRT** API"
+                ]
+            ]
+        }
+    },
+    {
+        "title": "Chapter 8: User Interface & Interaction",
+        "subtitle": "Dashboard, Voice Assistant, Alert System, and Feedback Loop."
+    },
+    {
+        "title": "Application Overview",
+        "subtitle": "Design Principle and Modules Breakdown.",
+        "body": {
+            "type": "text",
+            "data": [
+                "The PyQt6 interface is built as a **Direct Control Surface** over the Lynx engine. Every parameter a driver or technician can change in the UI maps to a field in a single **Config File** as a **Single Source of Truth**, which the engine reads at runtime.",
+                "The applicaion consist of **Eight Modules**",
+                "  1. **Launch**: The main session window, where live monitoring runs.",
+                "  2. **Camera**: Pre-Processing studio where multiple operations can be applied to enhance frame quality for the vision models.",
+                "  3. **Settings**: Application and config settings.",
+                "  4. **Device**: Monitors hardware status.",
+                "  5. **Drivers**: Add, delete, or link driver profiles.",
+                "  6. **Reports**: Local database and logging system, displaying stored data and events.",
+                "  7. **About Us**: Project and team information.",
+                "  8. **Guide**: Usage documentation and walkthroughs."
+            ]
+        }
+    },
+    {
+        "title": "The Voice Assistant Pipeline",
+        "subtitle": "Four Independent Models Chained Into a Single Conversational System.",
+        "body": {
+            "type": "table",
+            "metadata": {
+                "header": true
+            },
+            "data": [
+                [
+                    "**Stage**",
+                    "**Model**",
+                    "**Role**",
+                    "**Output Forward**"
+                ],
+                [
+                    "**Activation**",
+                    "**Wake-Word** *('Lynx Engage')*",
+                    "Audio classifier (always-on listener) trained on a trigger phrase, keeps the rest of the pipeline idle until it's actually called for",
+                    "An open channel, ready to record"
+                ],
+                [
+                    "**Speech End Detection**",
+                    "**VAD** *(Voice Activity Detection)*",
+                    "Tracks the active speaker to determine exactly when they've stopped talking, marking the end of the recording",
+                    "A captured audio segment"
+                ],
+                [
+                    "**Transcription**",
+                    "**Faster-Whisper**",
+                    "Converts the captured audio segment into raw text",
+                    "Raw transcribed text"
+                ],
+                [
+                    "**Command Classification**",
+                    "**Sentence Transformer**",
+                    "Converts the transcribed text into a labeled command the engine can execute",
+                    "A labeled, executable command"
+                ],
+                [
+                    "**Voice Feedback**",
+                    "**Kokoro & Piper**",
+                    "Synthesizes the engine's response back into spoken audio",
+                    "A spoken response to the driver"
+                ]
+            ]
+        }
+    },
+
+    {
+        "title": "Chapter 9: Live Performance Demonstration",
+        "subtitle": "End-to-End System Demonstration Across Detection Scenarios."
+    },
+    {
+        "title": "Real-World Testing",
+        "subtitle": "Proof of What Was Achieved and How the System Reacted to Real Cases.",
+        "body": { "type": "video", "data": "./Assets/CH9/demo_1.mp4", "fade": false }
+    },
+    {
+        "title": "Simulation",
+        "subtitle": "System Testing with Using Pre-Recorded Videos to Simulate Driver Behavior.",
+        "body": { "type": "video", "data": "./Assets/CH9/demo_2.mp4", "fade": false }
+    },
+    {
+        "title": "Face Recognition & Logging System",
+        "subtitle": "How to Add Driver Profile, Train the Adapter, and Verify Identity.",
+        "body": { "type": "video", "data": "./Assets/CH9/demo_3.mp4", "fade": false }
+    },
+
+    {
+        "title": "Chapter 10: Conclusion & Future Versions",
+        "subtitle": "Benchmarks, Limitations, Key Takeaways, and Development Plans."
+    },
+    {
+        "title": "Benchmarks",
+        "subtitle": "Per-Model Accuracy Across the Detection & Recognition Stack.",
+        "body": {
+            "type": "table",
+            "metadata": {
+                "header": true
+            },
+            "data": [
+                [
+                    "**Stage / Model**",
+                    "**Metric**",
+                    "**Result**"
+                ],
+                [
+                    "**Face Detector**",
+                    "**No Custom Metric to Report**",
+                    "MediaPipe FaceLandmarker *(Pretrained Google Model)*"
+                ],
+                [
+                    "**Face Recognizer** *(Adapter)*",
+                    "Verification Confidence",
+                    "Enhanced by **+35%** *(Reduced Intra-Class Variance & Widening Inter-Class Margin)*"
+                ],
+                [
+                    "**Lightweight Processor**",
+                    "Accuracy over DMD Dataset",
+                    "Drowsiness: **95.5%** • Gaze: **100%** • Distraction: **89%**"
+                ],
+                [
+                    "**Inference Processor**",
+                    "Accuracy *(MobileNets)*",
+                    "Drowsiness: **97%** • Gaze: **96%**"
+                ],
+                [
+                    "**Intensive Processor**",
+                    "Accuracy *(EfficientNet & Temporal Models)*",
+                    "Drowsiness: **99.3%** • Distraction: **96%**"
+                ],
+                [
+                    "**Face Utils Module**",
+                    "Accuracy",
+                    "Mask: **97.5%** • Glasses: **98%**"
+                ],
+                [
+                    "**Seatbelt Detection**",
+                    "Accuracy",
+                    "**93%**"
+                ],
+                [
+                    "**Objects** *(Phone, Cigarette, etc.)*",
+                    "—",
+                    "Running on Stock **YOLO COCO Classes** until a COCO-Subset Model is Integrated"
+                ]
+            ]
+        }
+    },
+    {
+        "title": "Limitations",
+        "subtitle": "An Honest Account of Where the Prototype Falls Short Today.",
+        "body": {
+            "type": "text",
+            "data": [
+                "  * **Camera**: A standard USB webcam, not the global-shutter / IR-capable sensor the ideal spec called for, no suitable unit was found within prototype budget, so low-light and fast-motion frames are noisier than they should be.",
+                "  * **Audio Module**: Output-only USB speaker, **No Microphone Input**, which directly blocks the voice assistant: the Wake Word, VAD, and Faster-Whisper stages cannot be tested live on-device until a mic-capable module is integrated.",
+                "  * **Voice Assistant Dataset**: The Sentence Transformer's command dataset is still under construction, the model that turns transcribed text into a labeled command is not yet trained, so the pipeline is not end-to-end functional.",
+                "  * **Common Object Detection**: Phone and similar distraction objects still run on **Stock YOLO COCO Classes** rather than a model trained on a purpose-built subset, so detections are broader and less tuned than the rest of the stack.",
+                "  * **Enclosure**: The custom 3D-printed housing is functional as a prototype but **Not Yet Reinforced** for sustained in-vehicle vibration and heat."
+            ]
+        }
+    },
+    {
+        "title": "Key Takeaways",
+        "subtitle": "What Has Been Built and Proven So Far.",
+        "body": {
+            "type": "text",
+            "data": [
+                "  * **A Working Edge AI Appliance**: Sensing, inference, and alerting all run locally on a Raspberry Pi 5 with a Hailo-8L NPU, no cloud dependency, satisfying the privacy, latency, and connectivity constraints set out in Chapter 3.",
+                "  * **A Trained, Validated Perception Stack**: MediaPipe handles landmark detection with no custom metric needed; the **Lightweight Processor** reaches **95.5% Accuracy** on DMD; the combined **Inference Processor (YOLO26n + MobileNetV3-Small)** averages **93%**; **Seatbelt Detection** sits at **96%**.",
+                "  * **A Stronger Face Recognizer**: An MLP embedder on top of ArcFace pushed verification confidence up by **35%**, by reducing intra-class variance and widening the margin between different identities.",
+                "  * **A Modular Engine Architecture**: Stateless `Pipeline` processors (lightweight, inference, intensive) and stateful `Interaction` units are cleanly separated, which let the voice assistant be added on top without restructuring the core engine.",
+                "  * **A Config-Driven Interface**: One configuration file governs both the engine and the eight-module PyQt6 UI, so every visible control maps to a real, persistent system parameter.",
+                "  * **A Four-Model Voice Pipeline Designed and Partially Built**: Wake Word *('Lynx Engage')*, VAD, Faster-Whisper, Sentence Transformer, and Kokoro/Piper are architected as one chained system, with the audio capture and synthesis stages already working in isolation.",
+                "  * **A Custom Physical Platform**: A 3D-printed enclosure houses the full hardware stack as a self-contained, vehicle-mountable prototype."
+            ]
+        }
+    },
+    {
+        "title": "Future Development Plan",
+        "subtitle": "What Remains, in the Order It Will Be Tackled.",
+        "body": {
+            "type": "text",
+            "data": [
+                "  * **Upgrade the Camera**: Move to a global-shutter, IR-capable sensor for reliable low-light and fast-motion performance.",
+                "  * **Microphone-Capable Audio Module**: Replace the output-only speaker first, since it's the single hardware blocker keeping the voice assistant from running live.",
+                "  * **Finish the Sentence Transformer Command Dataset**: Complete labeling and training so transcribed text reliably maps to engine commands, the last untrained stage of the voice pipeline.",
+                "  * **Integrate the Voice Assistant End-to-End**: Once the dataset and microphone are ready, wire Wake Word, VAD, Faster-Whisper, Sentence Transformer, and Kokoro/Piper into the live engine and validate the full conversational loop.",
+                "  * **Complete the Remaining UI Modules**: Build out Reports, Settings, and the other screens behind the main menu so the interface matches the full config surface.",
+                "  * **Train a Custom COCO-Subset Model**: Replace the stock YOLO COCO classes currently used for common object detection with a model tuned specifically to in-vehicle distraction objects.",
+                "  * **Reinforce the Enclosure**: Harden the 3D-printed housing for sustained vibration, heat, and in-vehicle conditions."
+            ]
+        }
+    },
+    {
+        "body": {
+            "type": "break",
+            "data": "Thank You",
+            "metadata": "Presented By: Vision Core"
+        }
+    }
+]
